@@ -32,6 +32,12 @@ contract PropertyRegistry{
         return (owners[ins].name, owners[ins].propaddress, owners[ins].price);
     }
 
+
+
+
+
+
+
     function countOwners() view public returns (uint){
         return ownerAccts.length;
     }
