@@ -1,12 +1,6 @@
-if (typeof web3 !== 'undefined') {
-    web3 = new Web3(web3.currentProvider);
-} else {
-    // set the provider you want from Web3.providers
-    web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+//get ABI from online contract
 
-    web3.eth.defaultAccount = web3.eth.accounts[0];
-
-    var CoursetroContract = web3.eth.contract([
+ABI = [
     {
         "constant": false,
         "inputs": [
@@ -60,10 +54,23 @@ if (typeof web3 !== 'undefined') {
         "name": "Instructor",
         "type": "event"
     }
-]);
+]
+
+//contract address from Remix
+contract_address = '0x2820477cf8798eeb22e40ebb5da4fe28eec93084'
+
+if (typeof web3 !== 'undefined') {
+    web3 = new Web3(web3.currentProvider);
+} else {
+    // set the provider you want from Web3.providers
+    web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+
+    web3.eth.defaultAccount = web3.eth.accounts[0];
+
+    var CoursetroContract = web3.eth.contract(ABI);
 }
 
-var Coursetro = CoursetroContract.at('0x5233fa19955b1798edb436e7be329263ee43a5c8')
+var Coursetro = CoursetroContract.at(contract_address)
 console.log(Coursetro);
 
 var instructorEvent = Coursetro.Instructor();
