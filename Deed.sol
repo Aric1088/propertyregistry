@@ -6,6 +6,7 @@ contract PropertyRegistry{
         string name;
         string propaddress;
         string price;
+        uint timestamp;
     }
 
     mapping (address => Owner) owners;
@@ -18,6 +19,7 @@ contract PropertyRegistry{
         owner.name = _name;
         owner.propaddress = _propaddress;
         owner.price = _price;
+        owner.timestamp = block.timestamp;
         ownerAccts.push(_address) -1;
     }
 

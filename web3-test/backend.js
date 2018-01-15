@@ -1,63 +1,165 @@
 //get ABI from online contract
 
 ABI = [
-    {
-        "constant": false,
-        "inputs": [
-            {
-                "name": "_fName",
-                "type": "string"
-            },
-            {
-                "name": "_age",
-                "type": "uint256"
-            }
-        ],
-        "name": "setInstructor",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "constant": true,
-        "inputs": [],
-        "name": "getInstructor",
-        "outputs": [
-            {
-                "name": "",
-                "type": "string"
-            },
-            {
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "anonymous": false,
-        "inputs": [
-            {
-                "indexed": false,
-                "name": "name",
-                "type": "string"
-            },
-            {
-                "indexed": false,
-                "name": "age",
-                "type": "uint256"
-            }
-        ],
-        "name": "Instructor",
-        "type": "event"
-    }
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "propaddress",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "ownerAccts",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getOwners",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "prop",
+				"type": "string"
+			}
+		],
+		"name": "getOwneratProperty",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "ins",
+				"type": "address"
+			}
+		],
+		"name": "getOwner",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_address",
+				"type": "address"
+			},
+			{
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"name": "_propaddress",
+				"type": "string"
+			},
+			{
+				"name": "_price",
+				"type": "string"
+			}
+		],
+		"name": "setOwner",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_address",
+				"type": "address"
+			},
+			{
+				"name": "_propaddress",
+				"type": "string"
+			},
+			{
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"name": "_price",
+				"type": "string"
+			}
+		],
+		"name": "transferDeed",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
 ]
 
 //contract address from Remix
-contract_address = '0x2820477cf8798eeb22e40ebb5da4fe28eec93084'
+contract_address = '0xc387e279052382b956bc524df4018014f025bb0b'
 
 if (typeof web3 !== 'undefined') {
     web3 = new Web3(web3.currentProvider);
@@ -67,25 +169,44 @@ if (typeof web3 !== 'undefined') {
 
     web3.eth.defaultAccount = web3.eth.accounts[0];
 
-    var CoursetroContract = web3.eth.contract(ABI);
+    var PropertyContract = web3.eth.contract(ABI);
 }
 
-var Coursetro = CoursetroContract.at(contract_address)
-console.log(Coursetro);
+var Property = PropertyContract.at(contract_address)
+console.log(Property);
 
-var instructorEvent = Coursetro.Instructor();
+//need to create property event in contract?
+// var propertyEvent = Property.OwnerEvent();
 
-instructorEvent.watch(function(error, result){
-    if (!error)
-        {
-            $("#loader").hide();
-            $("#instructor").html(result.args.name + ' (' + result.args.age + ' years old)');
-        } else {
-            $("#loader").hide();
-            console.log(error);
-        }
-});
+// propertyEvent.watch(function(error, result){
+//     if (!error)
+//         {
+//             $("#loader").hide();
+//             $("#instructor").html(result.args.name + ' with property address ' + result.args.propaddress + ')');
+//         } else {
+//             $("#loader").hide();
+//             console.log(error);
+//         }
+// });
 
 $("#button").click(function() {
-    Coursetro.setInstructor($("#name").val(), $("#age").val());
+    Property.setOwner(
+        $("#address").val(),
+        $("#name").val(),
+        $("#propaddress").val(),
+        $("#price").val()
+    );
+
+    console.log($("#address").val() + " " + 
+        $("#name").val() + " " + 
+        $("#propaddress").val() + " " + 
+        $("#price").val());
+
+    //Property.setInstructor($("#name").val(), $("#age").val());
+
+    
 });
+
+// (0) 0x6d0bfdd495b64589a7ecdbbd5934c4657bd16525
+// (1) 0x7b4134b2ecf4f62b86605ecb2b035b5304bb2b77
+// (2) 0x63bac5c8f313cd8aa0b83391fdb830041ce849a4
