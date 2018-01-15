@@ -5,7 +5,8 @@ body {
 }
 .container {
     width: 50%;
-    margin: 0 auto;
+    margin: 20 auto;
+    float: left;
 }
 label {
     display:block;
@@ -22,6 +23,10 @@ button {
     display:block;
 }
 
+h2 {
+    font-size: 12px;
+}
+
 #instructor {
     padding:1em;
     background-color:#fff;
@@ -33,4 +38,9 @@ button {
 #loader {
     width: 100px;
     display:none;
+}
+
+#fooker {
+    margin: 20 auto;
+    float: right;
 }
