@@ -23,6 +23,9 @@ button {
     display:block;
 }
 
+#image {
+
+}
 h2 {
     font-size: 12px;
 }
@@ -43,4 +46,18 @@ h2 {
 #fooker {
     margin: 20 auto;
     float: right;
+    list-style-type: none;
+}
+
+#directory {
+float:right;
+padding-right:20px;
+}
+
+li {
+  padding: 30px;
+  background-color: white;
+}
+#val {
+  padding: 10px;
 }

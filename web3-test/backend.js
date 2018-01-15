@@ -1,162 +1,162 @@
 //get ABI from online contract
 
-const ABI = [
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "propaddress",
-		"outputs": [
-			{
-				"name": "",
-				"type": "string"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "ownerAccts",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "getOwners",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address[]"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "prop",
-				"type": "string"
-			}
-		],
-		"name": "getOwneratProperty",
-		"outputs": [
-			{
-				"name": "",
-				"type": "string"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "ins",
-				"type": "address"
-			}
-		],
-		"name": "getOwner",
-		"outputs": [
-			{
-				"name": "",
-				"type": "string"
-			},
-			{
-				"name": "",
-				"type": "string"
-			},
-			{
-				"name": "",
-				"type": "string"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_address",
-				"type": "address"
-			},
-			{
-				"name": "_name",
-				"type": "string"
-			},
-			{
-				"name": "_propaddress",
-				"type": "string"
-			},
-			{
-				"name": "_price",
-				"type": "string"
-			}
-		],
-		"name": "setOwner",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_address",
-				"type": "address"
-			},
-			{
-				"name": "_propaddress",
-				"type": "string"
-			},
-			{
-				"name": "_name",
-				"type": "string"
-			},
-			{
-				"name": "_price",
-				"type": "string"
-			}
-		],
-		"name": "transferDeed",
-		"outputs": [
-			{
-				"name": "",
-				"type": "string"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	}
-];
+// const ABI = [
+// 	{
+// 		"constant": true,
+// 		"inputs": [
+// 			{
+// 				"name": "",
+// 				"type": "uint256"
+// 			}
+// 		],
+// 		"name": "propaddress",
+// 		"outputs": [
+// 			{
+// 				"name": "",
+// 				"type": "string"
+// 			}
+// 		],
+// 		"payable": false,
+// 		"stateMutability": "view",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"constant": true,
+// 		"inputs": [
+// 			{
+// 				"name": "",
+// 				"type": "uint256"
+// 			}
+// 		],
+// 		"name": "ownerAccts",
+// 		"outputs": [
+// 			{
+// 				"name": "",
+// 				"type": "address"
+// 			}
+// 		],
+// 		"payable": false,
+// 		"stateMutability": "view",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"constant": true,
+// 		"inputs": [],
+// 		"name": "getOwners",
+// 		"outputs": [
+// 			{
+// 				"name": "",
+// 				"type": "address[]"
+// 			}
+// 		],
+// 		"payable": false,
+// 		"stateMutability": "view",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"constant": true,
+// 		"inputs": [
+// 			{
+// 				"name": "prop",
+// 				"type": "string"
+// 			}
+// 		],
+// 		"name": "getOwneratProperty",
+// 		"outputs": [
+// 			{
+// 				"name": "",
+// 				"type": "string"
+// 			}
+// 		],
+// 		"payable": false,
+// 		"stateMutability": "view",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"constant": true,
+// 		"inputs": [
+// 			{
+// 				"name": "ins",
+// 				"type": "address"
+// 			}
+// 		],
+// 		"name": "getOwner",
+// 		"outputs": [
+// 			{
+// 				"name": "",
+// 				"type": "string"
+// 			},
+// 			{
+// 				"name": "",
+// 				"type": "string"
+// 			},
+// 			{
+// 				"name": "",
+// 				"type": "string"
+// 			}
+// 		],
+// 		"payable": false,
+// 		"stateMutability": "view",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"constant": false,
+// 		"inputs": [
+// 			{
+// 				"name": "_address",
+// 				"type": "address"
+// 			},
+// 			{
+// 				"name": "_name",
+// 				"type": "string"
+// 			},
+// 			{
+// 				"name": "_propaddress",
+// 				"type": "string"
+// 			},
+// 			{
+// 				"name": "_price",
+// 				"type": "string"
+// 			}
+// 		],
+// 		"name": "setOwner",
+// 		"outputs": [],
+// 		"payable": false,
+// 		"stateMutability": "nonpayable",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"constant": false,
+// 		"inputs": [
+// 			{
+// 				"name": "_address",
+// 				"type": "address"
+// 			},
+// 			{
+// 				"name": "_propaddress",
+// 				"type": "string"
+// 			},
+// 			{
+// 				"name": "_name",
+// 				"type": "string"
+// 			},
+// 			{
+// 				"name": "_price",
+// 				"type": "string"
+// 			}
+// 		],
+// 		"name": "transferDeed",
+// 		"outputs": [
+// 			{
+// 				"name": "",
+// 				"type": "string"
+// 			}
+// 		],
+// 		"payable": false,
+// 		"stateMutability": "nonpayable",
+// 		"type": "function"
+// 	}
+// ];
 
 
 // (0) 0x9f9a02ffb21f47c47b792f16779757a456213dfb
@@ -171,21 +171,7 @@ const ABI = [
 // (9) 0xad84dd13a02aab68d5b51115ccd7f3a28575a1bd
 
 //contract address from Remix
-contract_address = '0x95022998dec75117483deb60787d54eecb206d25'
 
-if (typeof web3 !== 'undefined') {
-    web3 = new Web3(web3.currentProvider);
-} else {
-    // set the provider you want from Web3.providers
-    web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-
-    web3.eth.defaultAccount = web3.eth.accounts[0];
-
-    var PropertyContract = web3.eth.contract(ABI);
-}
-
-var Property = PropertyContract.at(contract_address)
-console.log(Property);
 
 //need to create property event in contract?
 // var propertyEvent = Property.OwnerEvent();
@@ -211,9 +197,9 @@ $("#button").click(function() {
 
     // $("#instructor").html(Property.getOwner($("#address").val()));
 
-    console.log($("#address").val() + " " + 
-        $("#name").val() + " " + 
-        $("#propaddress").val() + " " + 
+    console.log($("#address").val() + " " +
+        $("#name").val() + " " +
+        $("#propaddress").val() + " " +
         $("#price").val());
 
     // document.getElementById("fooker").append(' <li>
@@ -222,7 +208,6 @@ $("#button").click(function() {
     //             <h2> Property Address: 1044 Manhattan</h2>
     //             <h2> Price: 893789389</h2>
     //         </li> ');
-
     var li = document.createElement("li");
     var nameh2 = document.createElement("h2");
     nameh2.appendChild(document.createTextNode("Name: " + $("#name").val()));
@@ -238,13 +223,13 @@ $("#button").click(function() {
     li.appendChild(ethh2);
     li.appendChild(proph2);
     li.appendChild(priceh2);
-    
+
     //li.appendChild(document.createTextNode("Four"));
     li.setAttribute("id", "element4"); // added line
     document.getElementById("fooker").appendChild(li);
 
 
-    //Property.setInstructor($("#name").val(), $("#age").val()); 
+    //Property.setInstructor($("#name").val(), $("#age").val());
 });
 
 // (0) 0x6d0bfdd495b64589a7ecdbbd5934c4657bd16525
