@@ -7,6 +7,7 @@ body {
     width: 50%;
     margin: 20 auto;
     float: left;
+    padding-left: 50px;
 }
 label {
     display:block;
@@ -23,9 +24,13 @@ button {
     display:block;
 }
 
-#image {
+#image 
+    {
+        display: block;
+        margin: 0 auto;
+        padding-left: 41.5%;
+    }
 
-}
 h2 {
     font-size: 12px;
 }
@@ -51,7 +56,7 @@ h2 {
 
 #directory {
 float:right;
-padding-right:20px;
+padding-right: 60px;
 }
 
 li {
@@ -59,5 +64,5 @@ li {
   background-color: white;
 }
 #val {
-  padding: 10px;
+  padding-left: 50px;
 }
